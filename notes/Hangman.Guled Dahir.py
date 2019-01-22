@@ -11,4 +11,4 @@ guesses = 8
 word_letters = list(word)
 
 guess = input("Guess a letter")
-
+print("%s?? Really???" % word_letters)
