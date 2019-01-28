@@ -2,7 +2,6 @@ import random
 word_bank = ["pencil", "computers", "hair", "poster", "clock", "agriculture", "work", "shirts", "pants", "catch"]
 
 word = random.choice(word_bank)
-word = 'pizza'
 print(word)
 letters_used = []
 guesses = 8
