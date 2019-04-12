@@ -231,8 +231,7 @@ class Player(object):
         self.action = action
         self.location_x = location_x
         self.location_y = location_y
-        self.player = player.inventor
-        self.world =
+        self.world = world.tile_exists
 
     def is_alive(self):
         return self.health > 0
