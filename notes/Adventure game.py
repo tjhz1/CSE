@@ -9,9 +9,6 @@ class Room(object):
         self.description = description
 
 
-
-
-
 class Items(object):
     def __init__(self, name):
         self.name = name
@@ -24,59 +21,85 @@ class Weapons(object):
 
 
 class Bow(Weapons):
-    def __init__(self, name, arrow, kills):
-        super(Bow, self).__init__(name)
+    def __init__(self, name):
+        super(Bow, self).__init__(name, 20)
         self.arrows = 50
         self.kills = 10
 
+    def numbers_kills(self):
+        self.kills = True
+
+    def shot_arrow(self):
+        self.arrows = 50
+
 
 class Potion(object):
-    def __init__(self, name):
+    def __init__(self, name, change):
         self.name = name
+        self.change = change
+
+    def change_time(self):
+        self.change = True
+        print("Your have change due to the potion")
 
 
 class Growth(Potion):
     def __init__(self, name):
-        super(Potion, self).__init__(name)
-        self.size = 40
+        super(Potion, self).__init__("Growth")
+        self.change = True
+        self.name =name
+
+    def over_time(self):
+        self.change = True
+        print("You have grown due to the potion")
 
 
 class Axe(Weapons):
     def __init__(self, name):
-        super(Weapons, self).__init__(name)
+        super(Weapons, self).__init__("Axe", 40)
         self.damage = 40
+        self.name = name
 
 
 class Shrink(Potion):
     def __init__(self):
-        super(Shrink, self).__init__("Shrink")
+        super(Shrink, self).__init__("Shrink", 10)
+
+    def over_time(self):
+        self.change = True
+        print("You have shrunk due to the potion")
 
 
 class Knife(Weapons):
     def __init__(self):
-        super(Knife, self).__init__("Knife")
+        super(Knife, self).__init__("Knife", 20)
         self.damage = 20
 
 
 class Speed(Potion):
     def __init__(self):
-        super(Speed, self).__init__("Speed")
+        super(Speed, self).__init__("Speed", 50)
+
+    def over_time(self):
+        self.change = True
+        print("You have gotten faster due to the potion")
 
 
 class Strength(Potion):
     def __init__(self):
-        super(Strength, self).__init__("Strength")
+        super(Strength, self).__init__("Strength", 30)
 
 
 class Sword(Weapons):
-    def __init__(self):
-        super(Sword, self).__init__("Sword")
+    def __init__(self, name, damage):
+        super(Sword, self).__init__("Sword", 50)
         self.damage = damage
+        self.name = name
 
 
 class Tools(Items):
     def __init__(self, name):
-        super(Tools, self).__init__()
+        super(Tools, self).__init__("Tools")
         self.name = name
 
 
@@ -93,23 +116,24 @@ class Pickaxe(Tools):
 class Shovel(Tools):
     def __init__(self):
         super(Shovel, self).__init__("Shovel")
-        self.shovel_amt = shovel_amt
 
 
 class Food(Items):
     def __init__(self, name):
-        super(Food, self).__init__()
+        super(Food, self).__init__("Food")
         self.name = name
 
 
 class Soup(Food):
     def __init__(self, name):
         super(Soup, self).__init__("Soup")
+        self.name = name
 
 
 class Fish(Food):
     def __init__(self, name):
         super(Fish, self).__init__("Fish")
+        self.name = name
 
 
 class Armor(Items):
@@ -118,10 +142,17 @@ class Armor(Items):
         self.armor_amt = armor_amt
 
 
+class Pizza(Food):
+    def __init__(self, name):
+        super(Pizza, self).__init__("Pizza")
+        self.name = name
+
+
 class Healing(Potion):
     def __init__(self, name):
-        super(Healing, self).__init__("Healing")
+        super(Healing, self).__init__("Healing", 50)
         self.health = 100
+        self.name = name
 
 
 class Character(object):
@@ -131,49 +162,21 @@ class Character(object):
         self.weapons = weapons
         self.armor = armor
 
-class Player(Character):
-    def __init__(self, weapons, potions, items, name, armor):
-        super(Player, self).__inti__(name, weapons, armor)
-        self.inventory = []
 
+def take_damage(self, damage):
+    if damage < self.armor.armor_amt:
+        print("No damage is done because of some Fabulous armor")
+    else:
+        self.health -= damage - self.armor.armor_amt
+        if self.health < 0:
+            self.health = 0
+            print("%s ahs fallen" % self.name)
+        print("%s has %d health left" % (self.name, self.health))
 
-    def take_damage(self, damage):
-        if damage < self.armor.armor_amt:
-            print("No damage is done because of some Fabulous armor")
-        else:
-            self.health -= damage - self.armor.armor_amt
-            if self.health < 0:
-                self.health = 0
-                print("%s ahs fallen" % self.name)
-            print("%s has %d health left" % (self.name, self.health))
-
-        def attack(self, target):
-            print("%d attacks %s for %d damage" %
-                  (self.name, target.name, self, weapon.damage))
-            target.take_damgae(self.weapon.damage)
-
-
-class Player(object):
-    def __init__(self, starting_location):
-        self.health = 100
-        self.inventor = []
-        self.current_location = starting_location
-
-    def move(self, new_location):
-        """This method moves a player to a new location
-
-        :param new_location: The room object that we move to
-        """
-        self.current_location = new_location
-
-    def find_room(self, direction):
-        """This method takes a direction, and finds the variable of the room.
-
-        :param direction: A String (all lowercase), with cardinal direction
-        :return: A room object if it exists, None if it does not
-        """
-        name_of_room = getattr(self.current_location, direction)
-        return globals()[name_of_room]
+    def attack(self, target):
+        print("%d attacks %s for %d damage" %
+              (self.name, self, weapon.damage))
+        target.take_damgae(self.weapon.damage)
 
 
 # These are the instances of the rooms (Instantiation)
@@ -188,16 +191,17 @@ R19A.north = parking_lot
 R19A = Room("Mr. Wiebe room", 'parking_lot', None, None, None, "This is your computer science class.")
 parking_lot = Room("The Parking Lot", None, "R19A", None, None, "There are a few cars parked here")
 
-player = Player(R19A)
+player = Player(prison)
 
-directions = ['north', 'south', 'east', 'west', 'up', 'down']
+directions = ['north', 'south', 'east', 'w'
+                                        'est', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 playing = True
 
 # Controller
 while playing:
     print(player.current_location.name)
-    print(player.current_location.description)A
+    print(player.current_location.description)
 
     command = input(">_")
 
@@ -219,13 +223,78 @@ sword = Weapons("Sword", 10)
 canoe = Weapons("Canoe", 84)
 wiebe_armor = Armor("Armor of the Gods", 1000000000)
 
+class Player(object):
+    def __init__(self, starting_location, action, location_x, location_y):
+        self.health = 100
+        self.inventor = ['weapons', 'potion', 'food']
+        self.current_location = starting_location
+        self.action = action
+        self.location_x = location_x
+        self.location_y = location_y
+        self.player = player.inventor
+        self.world =
+
+    def is_alive(self):
+        return self.health > 0
+
+    def print_inventory(self):
+        for item in self.inventor:
+            print(item, '\n')
+
+    def move(self, dx, dy):
+        self.location_x += dx
+        self.location_y += dy
+        print(world.tile_exists(self.location_x, self.location_y).intro_text())
+
+    def move_north(self):
+        self.move(dx=0, dy=-1)
+
+    def move_south(self):
+        self.move(dx=0, dy=1)
+
+    def move_east(self):
+        self.move(dx=1, dy=0)
+
+    def move_west(self):
+        self.move(dx=-1, dy=0)
+
+class Action:
+    def __init__(self, method, name):
+        self.method = method
+        self.name = name
+class MoveNorth(Action):
+    def __init__(self):
+        super().__init__(method=Player.move_north, name='Move north')
+
+
+class MoveSouth(Action):
+    def __init__(self):
+        super().__init__(method=Player.move_south, name='Move south')
+
+
+class MoveEast(Action):
+    def __init__(self):
+        super().__init__(method=Player.move_east, name='Move east')
+
+
+class MoveWest(Action):
+    def __init__(self):
+        super().__init__(method=Player.move_west, name='Move west')
+
+
+class ViewInventor(Action):
+    """Prints the player's inventor"""
+
+    def __init__(self):
+        super().__init__(method=Player.print_inventor, name='View inventor')
+
+
 # Characters
 prisnoner = Character("Prisoners", 100, sword, Armor("Generic Armor", 2))
-wiebe = Character("Wiebe", 1000000000,canoe ,wiebe_armor)
+Boss = Character("Boss", 1000000000, sword ,wiebe_armor)
+Cafeteria_worker = Character("Cafeteria worker", 50, sword, Armor("No armor", 0))
+Room_mate = Character("Room mate", 100, sword, Armor("No armor", 0))
 
-prisnoner.attack(wiebe)
-wiebe.attack(prisnoner)
-wiebe.attack(prisnoner)
 
 class Room(object):
     # This is a constructor
@@ -256,14 +325,6 @@ the_bossoffice = Room("the boss office", "Where the prisoners go to the", None, 
 the_coalmine = Room("the coal mine", "Where the prisoner work for time", None, "the court", None, None)
 the_court = Room("the court", "Where the prisoner get judge", "The exits", None, None, None)
 the_exit = Room("the exit", "Where the prisoner get released")
-
-class Player(object):
-    def __init__(self, starting_location):
-        self.health = 100
-        self.inventor = []
-        self.current_location = starting_location
-
-
 
 
     else:

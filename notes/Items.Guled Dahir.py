@@ -9,8 +9,8 @@ class Weapons(object):
         self.damage = damage
 
 class Bow(Weapons):
-    def __init__(self, name, arrow, kills):
-        super(Bow, self).__init__(name)
+    def __init__(self, name):
+        super(Bow, self).__init__("Bow", 20)
         self.arrows = 50
         self.kills = 10
 
@@ -23,6 +23,11 @@ class Bow(Weapons):
 class Potion(object):
     def __init__(self, name):
         self.name = name
+        self.change = change
+
+    def change_time(self):
+        self.change = True
+        print("Your have change due to the potion")
 
 
 class Growth(Potion):
@@ -30,8 +35,9 @@ class Growth(Potion):
         super(Potion, self).__init__(name)
         self.size = 40
 
-    def growth_size(self):
-        self.size = 40
+    def over_time(self):
+        self.change = True
+        print("You have grown due to the potion")
 
 
 class Axe(Weapons):
@@ -44,10 +50,14 @@ class Shrink(Potion):
     def __init__(self):
         super(Shrink, self).__init__("Shrink")
 
+    def over_time(self):
+        self.change = True
+        print("You have shrunk due to the potion")
+
 
 class Knife(Weapons):
     def __init__(self):
-        super(Knife, self).__init__("Knife")
+        super(Knife, self).__init__("Knife", 20)
         self.damage = 20
 
 
@@ -55,8 +65,9 @@ class Speed(Potion):
     def __init__(self):
         super(Speed, self).__init__("Speed")
 
-    def mile_fast(self):
-
+    def over_time(self):
+        self.change = True
+        print("You have gotten faster due to the potion")
 
 
 class Strength(Potion):
@@ -66,13 +77,13 @@ class Strength(Potion):
 
 class Sword(Weapons):
     def __init__(self):
-        super(Sword, self).__init__("Sword")
+        super(Sword, self).__init__("Sword", 50)
         self.damage = damage
 
 
 class Tools(Items):
     def __init__(self, name):
-        super(Tools, self).__init__()
+        super(Tools, self).__init__("Tools")
         self.name = name
 
 
@@ -89,7 +100,6 @@ class Pickaxe(Tools):
 class Shovel(Tools):
     def __init__(self):
         super(Shovel, self).__init__("Shovel")
-        self.shovel_amt = shovel_amt
 
 
 class Food(Items):
@@ -112,6 +122,10 @@ class Armor(Items):
     def __init__(self, name, armor_amt):
         super(Armor, self).__init__(name)
         self.armor_amt = armor_amt
+
+class Pizza(Food):
+    def __init__(self, name):
+        super(Pizza, self).__init__("Pizza")
 
 
 class Healing(Potion):
@@ -150,11 +164,8 @@ wiebe_armor = Armor("Armor of the Gods", 1000000000)
 
 # Characters
 prisnoner = Character("Prisoners", 100, sword, Armor("Generic Armor", 2))
-wiebe = Character("Wiebe", 1000000000,canoe ,wiebe_armor)
+Boss = Character("Boss", 1000000000, canoe, wiebe_armor)
 
-prisnoner.attack(wiebe)
-wiebe.attack(prisnoner)
-wiebe.attack(prisnoner)
-
-Victor.weapons = Bow
+Victor.weapons = Bow, Sword, knife, potion
 Victor.damgae()
+Victor.change()
