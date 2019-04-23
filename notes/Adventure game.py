@@ -173,11 +173,6 @@ def take_damage(self, damage):
             print("%s ahs fallen" % self.name)
         print("%s has %d health left" % (self.name, self.health))
 
-    def attack(self, target):
-        print("%d attacks %s for %d damage" %
-              (self.name, self, weapon.damage))
-        target.take_damgae(self.weapon.damage)
-
 
 # These are the instances of the rooms (Instantiation)
 
@@ -191,7 +186,7 @@ R19A.north = parking_lot
 R19A = Room("Mr. Wiebe room", 'parking_lot', None, None, None, "This is your computer science class.")
 parking_lot = Room("The Parking Lot", None, "R19A", None, None, "There are a few cars parked here")
 
-player = Player(prison)
+player = player(prisoner)
 
 directions = ['north', 'south', 'east', 'w'
                                         'est', 'up', 'down']
@@ -221,17 +216,16 @@ while playing:
 # Items
 sword = Weapons("Sword", 10)
 canoe = Weapons("Canoe", 84)
-wiebe_armor = Armor("Armor of the Gods", 1000000000)
+
 
 class Player(object):
     def __init__(self, starting_location, action, location_x, location_y):
         self.health = 100
-        self.inventor = ['weapons', 'potion', 'food']
+        self.inventor = [items.Weapons(4), items.Potions(7), items.food(4)]
         self.current_location = starting_location
         self.action = action
         self.location_x = location_x
         self.location_y = location_y
-        self.world = world.tile_exists
 
     def is_alive(self):
         return self.health > 0
@@ -243,7 +237,7 @@ class Player(object):
     def move(self, dx, dy):
         self.location_x += dx
         self.location_y += dy
-        print(world.tile_exists(self.location_x, self.location_y).intro_text())
+        print(world.tile_exists(self.location_x, self.location_y)
 
     def move_north(self):
         self.move(dx=0, dy=-1)
@@ -285,12 +279,26 @@ class ViewInventor(Action):
     """Prints the player's inventor"""
 
     def __init__(self):
-        super().__init__(method=Player.print_inventor, name='View inventor')
+        super().__init__(method=Player.print_inventor(), name='View inventor')
+
+class Enemy:
+    def  __init__(self, name, hp, damage):
+        self.name = name
+        self.hp = hp
+        self.damage = damage
+
+    def is_alive(self):
+        return self.hp > 0
+
+
+class Roommate(Enemy):
+    def __init__(self):
+        super().__init__(name="Roommate", hp=10, damage=2)
 
 
 # Characters
 prisnoner = Character("Prisoners", 100, sword, Armor("Generic Armor", 2))
-Boss = Character("Boss", 1000000000, sword ,wiebe_armor)
+Boss = Character("Boss", 1000000000, sword ,Armor("no armor", 0))
 Cafeteria_worker = Character("Cafeteria worker", 50, sword, Armor("No armor", 0))
 Room_mate = Character("Room mate", 100, sword, Armor("No armor", 0))
 
@@ -309,7 +317,7 @@ class Room(object):
 
 
 
-Prison_cell = Room("The Prison Cell", "Where the prisoners sleep")
+Prison_cell = Room("The Prison Cell", "Where the prisoners sleep", print("soup"))
 Cafeteria = Room("Cafeteria","Where the prisoners eat",None, None, "The gym", None)
 The_gym = Room("The gym","Where the prisoners plan an escape",None, None, None,"The dungeon")
 The_dungeon = Room("The dungeon", "Where the worst prisoners live" ,None, None,"The office",None)
@@ -325,8 +333,5 @@ the_coalmine = Room("the coal mine", "Where the prisoner work for time", None, "
 the_court = Room("the court", "Where the prisoner get judge", "The exits", None, None, None)
 the_exit = Room("the exit", "Where the prisoner get released")
 
-
-    else:
-        print("Command not recognized.")
 
 
