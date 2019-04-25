@@ -40,76 +40,6 @@
     <expand />
     <select />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-313396410">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.109" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.32" value="2" />
-          <entry key="project.open.time.34" value="2" />
-          <entry key="project.open.time.35" value="3" />
-          <entry key="project.open.time.36" value="1" />
-          <entry key="project.open.time.37" value="3" />
-          <entry key="project.open.time.38" value="4" />
-          <entry key="project.open.time.39" value="2" />
-          <entry key="project.open.time.42" value="2" />
-          <entry key="project.open.time.44" value="1" />
-          <entry key="project.open.time.45" value="1" />
-          <entry key="project.open.time.47" value="1" />
-          <entry key="project.open.time.48" value="3" />
-          <entry key="project.open.time.49" value="2" />
-          <entry key="project.open.time.50" value="2" />
-          <entry key="project.open.time.51" value="2" />
-          <entry key="project.open.time.52" value="1" />
-          <entry key="project.open.time.54" value="4" />
-          <entry key="project.open.time.55" value="1" />
-          <entry key="project.open.time.57" value="2" />
-          <entry key="project.open.time.63" value="1" />
-          <entry key="project.open.time.64" value="3" />
-          <entry key="project.open.time.65" value="3" />
-          <entry key="project.open.time.67" value="1" />
-          <entry key="project.open.time.68" value="2" />
-          <entry key="project.open.time.70" value="1" />
-          <entry key="project.open.time.75" value="1" />
-          <entry key="project.open.time.79" value="2" />
-          <entry key="project.open.time.81" value="1" />
-          <entry key="project.open.time.86" value="1" />
-          <entry key="project.open.time.88" value="2" />
-          <entry key="project.open.time.92" value="1" />
-          <entry key="project.open.time.95" value="1" />
-          <entry key="project.opened" value="62" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="csv" value="1" />
-          <entry key="py" value="59" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="58" />
-          <entry key="Scratch" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="58" />
-          <entry key="py" value="20715" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PLAIN_TEXT" value="58" />
-          <entry key="Python" value="20715" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="CSE" />
   </component>
@@ -118,17 +48,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notes/Book1.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            <state relative-caret-position="192423">
+              <caret line="11334" selection-start-line="11334" selection-end-line="11334" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/notes/Notes.py">
+        <entry file="file://$PROJECT_DIR$/notes/CSV.Notes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="374">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notes/MyNewFiles.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="90066" column="16" selection-start-line="90066" selection-start-column="16" selection-end-line="90066" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -164,14 +103,9 @@
         <option value="$PROJECT_DIR$/notes/Adventure game.py" />
         <option value="$PROJECT_DIR$/notes/CSV/Notes.py" />
         <option value="$PROJECT_DIR$/notes/Notes.py" />
+        <option value="$PROJECT_DIR$/notes/CSV.Notes.py" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
@@ -204,9 +138,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -227,7 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Notes (1)">
+  <component name="RunManager" selected="Python.CSV.Notes">
     <configuration name="Adventure game" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CSE" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -250,7 +188,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Hangman.Guled Dahir" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="CSV.Notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CSE" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -263,7 +201,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/notes/Hangman.Guled Dahir.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/notes/CSV.Notes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -285,7 +223,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/notes/Notes.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\tjhz\Documents\GitHub\CSE\notes\CSV.Notes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -307,7 +245,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\tjhz\Documents\GitHub\CSE\notes\Notes.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\tjhz\Documents\GitHub\CSE\notes\CSV.Notes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -340,18 +278,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.Adventure game" />
-      <item itemvalue="Python.Hangman.Guled Dahir" />
       <item itemvalue="Python.Special_Random" />
       <item itemvalue="Python.Notes" />
       <item itemvalue="Python.Notes (1)" />
+      <item itemvalue="Python.CSV.Notes" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.CSV.Notes" />
         <item itemvalue="Python.Notes (1)" />
         <item itemvalue="Python.Notes" />
         <item itemvalue="Python.Adventure game" />
         <item itemvalue="Python.Special_Random" />
-        <item itemvalue="Python.Hangman.Guled Dahir" />
       </list>
     </recent_temporary>
   </component>
@@ -365,18 +303,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1546900372733</updated>
+      <workItem from="1556225823384" duration="2448000" />
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2448000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987775" weight="0.28320312" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987775" weight="0.28304905" />
       <window_info id="Structure" order="1" weight="0.24918033" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37658226" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37658226" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39873418" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -396,11 +338,11 @@
       <window_info anchor="right" id="Database" order="4" weight="0.32980332" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987775" visible="true" weight="0.28320312" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987775" weight="0.28304905" />
       <window_info id="Structure" order="1" weight="0.24918033" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32692307" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37658226" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39873418" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -426,9 +368,6 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -438,6 +377,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CSE$Notes__1_.coverage" NAME="Notes (1) Coverage Results" MODIFIED="1556227402314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
+    <SUITE FILE_PATH="coverage/CSE$CSV_Notes.coverage" NAME="CSV.Notes Coverage Results" MODIFIED="1556228280484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
@@ -539,15 +482,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/notes/Book1.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        <state relative-caret-position="192423">
+          <caret line="11334" selection-start-line="11334" selection-end-line="11334" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notes/Notes.py">
+    <entry file="file://$PROJECT_DIR$/notes/MyNewFiles.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="347">
+          <caret line="90066" column="16" selection-start-line="90066" selection-start-column="16" selection-end-line="90066" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes/CSV.Notes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
