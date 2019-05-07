@@ -17,6 +17,7 @@ def validate(num: str):
     # print(reversed_nums)
     list_nums = list(reversed_nums)
     print(list_nums)
+    multiply_odd_num(all_num)
     for index in range(len(list_nums)):
         list_nums[index] = int(list_nums[index])
     print(list_nums)
@@ -31,4 +32,3 @@ def multiply_odd_num(num: list):
                 num[index] -= 9
 
     print(validate(test_num))
-    

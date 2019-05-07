@@ -66,8 +66,6 @@ def reverse_it(string):
 print(reverse_it("dlroW olleH"))
 
 
-
-
 with open("Book1.csv", 'r') as old_csv:
     with open("MyNewFiles.csv", 'w', newline='') as new_csv:
         print("Writing file...")
