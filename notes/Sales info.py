@@ -10,8 +10,14 @@ with open("Sales Records.csv", 'r') as csv_file_thing:
         Total_cost = row[12]
         Unit_Cost = row[11]
         Unit_Price = row[10]
-        Unit_Sold = row[0]
+        Unit_Sold = row[9]
         if items == "Fruits":
-            # print(profit, items, Revenue, Total_cost)
+            print(profit, items, Revenue, Total_cost)
+            total += float(profit)
+        if items == "Beverages":
+            total += float(profit)
+        if items == "Clothes":
+            total += float(profit)
+        if items == "Meat":
             total += float(profit)
     print(total)
