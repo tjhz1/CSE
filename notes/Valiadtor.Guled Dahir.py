@@ -1,34 +1,34 @@
+import csv
 test_num = "3845023879443020"
-print(test_num)
-
-
-def remove_num(string):
-    return string[:15]
-
-
-def reverse_it(string):
-    return string[::-1]
+# list = list(test_num)
+# print(test_num)
 
 
 def validate(num: str):
-    cut_nums = remove_num(test_num[:15])
-    # print(cut_nums)
-    reversed_nums = reverse_it(cut_nums)
-    # print(reversed_nums)
-    list_nums = list(reversed_nums)
+    if len(num) is not 16:
+        print("doesn't work")
+        return False
+    last_num = int(num[15])
+    list_nums = list(num)[:15][::-1]
     print(list_nums)
-    multiply_odd_num(all_num)
     for index in range(len(list_nums)):
         list_nums[index] = int(list_nums[index])
-    print(list_nums)
-
-
-def multiply_odd_num(num: list):
-    for index in range(len(num)):
-        num[index] = int(num[index])
         if index % 2 == 0:
-            num[index] *= 3
-            if num[index] > 9:
-                num[index] -= 9
+            list_nums[index] *= 2
+            if list_nums[index] > 9:
+                list_nums[index] -= 9
+    total = sum(list_nums)
+    return total % 10 == last_num
 
-    print(validate(test_num))
+
+with open("Book1.csv", 'r') as old_csv:
+    with open("MyNewFiles.csv", 'w', newline='') as new_csv:
+        print("Writing file...")
+        reader = csv.reader(old_csv)
+        writer = csv.writer(new_csv)
+        for row in reader:
+            old_number = row[0]
+            if validate(old_number):
+                writer.writerow(row)
+
+print(validate(test_num))

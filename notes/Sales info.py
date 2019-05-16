@@ -68,5 +68,9 @@ print("Cereal_Profits = %f" % Cereal_Profits)
 
 
 list_num = [Profits_For_Fruits, Profits_For_Cereal, Profits_For_Vegetables, Profits_For_Household, Profits_For_Snacks,
-            Profits_For_Meats, Profits_For_Personal_Care, Profits_For_Beverages, Profits_For_Cosmetica, Profits_For_Baby_Food,
-            Profits_For,]
+            Profits_For_Meat, Profits_For_Personal_Care, Profits_For_Beverages, Profits_For_Cosmetics, Profits_For_Baby_Food,
+            Profits_For_Cloths, Profits_For_Office_Supplies]
+
+list_type = ("Fruits, Cereal, Vegetables, Household, Snacks, Meat, Personal_Care, Beverages, Cosmetics, Baby_Food,"
+             "Cloths, Office_Supplies")
+
