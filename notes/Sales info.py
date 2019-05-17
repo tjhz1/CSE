@@ -66,11 +66,14 @@ print("Baby_Food_Profits = %f" % Baby_Food_Profits)
 print("Snacks_Profits = %f" % Snacks_Profits)
 print("Cereal_Profits = %f" % Cereal_Profits)
 
-
-list_num = [Profits_For_Fruits, Profits_For_Cereal, Profits_For_Vegetables, Profits_For_Household, Profits_For_Snacks,
-            Profits_For_Meat, Profits_For_Personal_Care, Profits_For_Beverages, Profits_For_Cosmetics, Profits_For_Baby_Food,
-            Profits_For_Cloths, Profits_For_Office_Supplies]
+list_num = [Fruit_Profit, Cereal_Profits, Vegetables_Profits, HouseHold_Profits, Snacks_Profits,
+            Meats_Profits, Personal_Care_Profits, Beverages_Profits, Cosmetics_Profits,
+            Baby_Food_Profits, Clothes_Profit, Office_supplies_Profits]
 
 list_type = ("Fruits, Cereal, Vegetables, Household, Snacks, Meat, Personal_Care, Beverages, Cosmetics, Baby_Food,"
              "Cloths, Office_Supplies")
 
+index = list_num.index(max(list_num))
+
+print()
+print("Item with the highest profit is %s" % list_num[index])
