@@ -14,6 +14,16 @@ with open("Sales Records.csv", 'r') as csv_file_thing:
     Baby_Food_Profits = []
     Snacks_Profits = []
     Cereal_Profits = []
+    # Profits Regions
+    Sub-Saharan_Africa_Profits = []
+    Middle_East_Profits = []
+    North_Africa_Profits = []
+    Australia_Profits  = []
+    Oceania_Profits = []
+    Europe_Profits = []
+    Asia_Profit = []
+    Central_America_Profits = []
+    Caribbean_Profits = []
     for row in reader:
         profit = row[13]
         items = row[2]
@@ -74,6 +84,15 @@ list_type = ("Fruits, Cereal, Vegetables, Household, Snacks, Meat, Personal_Care
              "Cloths, Office_Supplies")
 
 index = list_num.index(max(list_num))
-
 print()
 print("Item with the highest profit is %s" % list_num[index])
+
+regions = ['Sub-Saharan_Africa', 'Middle_East' and 'North_Africa', 'Australia' and 'Oceania', 'Europe', 'Asia',
+              'Central_America' and 'the_Caribbean']
+
+regions_num = (Sub-Saharan_Africa_Profits, Middle_East_Profits and North_Africa_Profits, Australia_Profits and
+               Oceania_Profits, Europe_Profits, Asia_Profit, Central_America_Profits and Caribbean_Profits)
+
+index = regions_num.index(max(regions_num))
+print()
+print("Region with the highest profit is %s" % regions_num[index])

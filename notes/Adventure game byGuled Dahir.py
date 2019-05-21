@@ -47,7 +47,7 @@ class Growth(Potion):
     def __init__(self, name):
         super(Potion, self).__init__("Growth")
         self.change = True
-        self.name =name
+        self.name = name
 
     def over_time(self):
         self.change = True
@@ -176,20 +176,14 @@ def take_damage(self, damage):
 
 # These are the instances of the rooms (Instantiation)
 
-# Option 1 - Use the Variables, but fix later
-R19A = Room("Mr. Wiebe's Room")
-parking_lot = Room("The Parking Lot", None, R19A)
-
-R19A.north = parking_lot
 
 # Option 2 - Use Strings, but more difficult controller
-R19A = Room("Mr. Wiebe room", 'parking_lot', None, None, None, "This is your computer science class.")
-parking_lot = Room("The Parking Lot", None, "R19A", None, None, "There are a few cars parked here")
+Prison_cell = Room("Prison_cell", 'parking_lot', None, None, None, "This is your computer science class.")
+Cafeteria = Room("Cafeteria ", None, "R19A", None, None, "There are a few cars parked here")
 
-player = player(prisoner)
+player = player(Prisoners)
 
-directions = ['north', 'south', 'east', 'w'
-                                        'est', 'up', 'down']
+directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 playing = True
 
@@ -209,98 +203,42 @@ while playing:
     elif command in directions:
         try:
             next_room = player.find_room(command)
+            if next_room is None:
+                raise KeyError
             player.move(next_room)
         except KeyError:
              print("I can't go that way")
+    elif "take" in command:
+        items_name = command[5:]
+        found_items = None
+        for items in player.current_location.items:
+            if items.name == items_name:
+                found_items = items
+            if found_items is not items_name:
+                player.inventory.append(found_items)
+                player.current_location.items.remove(found_items)
 
 # Items
-sword = Weapons("Sword", 10)
-canoe = Weapons("Canoe", 84)
+Sword = Weapons("Sword", 40)
+Bow = Weapons("Bow", 10)
+Axe = Weapons("Axe", 20)
+Knife = Weapons("Knife", 10)
+Growth = Potion("Growth", 30)
+Shrink = Potion("Shrink", -10)
 
 
 class Player(object):
-    def __init__(self, starting_location, action, location_x, location_y):
+    def __init__(self, starting_location):
         self.health = 100
         self.inventor = [items.Weapons(4), items.Potions(7), items.food(4)]
         self.current_location = starting_location
-        self.action = action
-        self.location_x = location_x
-        self.location_y = location_y
-
-    def is_alive(self):
-        return self.health > 0
-
-    def print_inventory(self):
-        for item in self.inventor:
-            print(item, '\n')
-
-    def move(self, dx, dy):
-        self.location_x += dx
-        self.location_y += dy
-        print(world.tile_exists(self.location_x, self.location_y)
-
-    def move_north(self):
-        self.move(dx=0, dy=-1)
-
-    def move_south(self):
-        self.move(dx=0, dy=1)
-
-    def move_east(self):
-        self.move(dx=1, dy=0)
-
-    def move_west(self):
-        self.move(dx=-1, dy=0)
-
-class Action:
-    def __init__(self, method, name):
-        self.method = method
-        self.name = name
-class MoveNorth(Action):
-    def __init__(self):
-        super().__init__(method=Player.move_north, name='Move north')
-
-
-class MoveSouth(Action):
-    def __init__(self):
-        super().__init__(method=Player.move_south, name='Move south')
-
-
-class MoveEast(Action):
-    def __init__(self):
-        super().__init__(method=Player.move_east, name='Move east')
-
-
-class MoveWest(Action):
-    def __init__(self):
-        super().__init__(method=Player.move_west, name='Move west')
-
-
-class ViewInventor(Action):
-    """Prints the player's inventor"""
-
-    def __init__(self):
-        super().__init__(method=Player.print_inventor(), name='View inventor')
-
-class Enemy:
-    def  __init__(self, name, hp, damage):
-        self.name = name
-        self.hp = hp
-        self.damage = damage
-
-    def is_alive(self):
-        return self.hp > 0
-
-
-class Roommate(Enemy):
-    def __init__(self):
-        super().__init__(name="Roommate", hp=10, damage=2)
 
 
 # Characters
-prisnoner = Character("Prisoners", 100, sword, Armor("Generic Armor", 2))
-Boss = Character("Boss", 1000000000, sword ,Armor("no armor", 0))
-Cafeteria_worker = Character("Cafeteria worker", 50, sword, Armor("No armor", 0))
-Room_mate = Character("Room mate", 100, sword, Armor("No armor", 0))
+Prisoners = Character("Prisoners", 100, Sword, Armor("Generic Armor", 2))
+Boss = Character("Boss", 1000000000, Sword, Armor("no armor", 0))
+Cafeteria_worker = Character("Cafeteria worker", 50, Sword, Armor("No armor", 0))
+Room_mate = Character("Room mate", 100, Sword,Armor("No armor", 0))
 
 
 class Room(object):
@@ -317,21 +255,20 @@ class Room(object):
 
 
 
-Prison_cell = Room("The Prison Cell", "Where the prisoners sleep", print("soup"))
-Cafeteria = Room("Cafeteria","Where the prisoners eat",None, None, "The gym", None)
-The_gym = Room("The gym","Where the prisoners plan an escape",None, None, None,"The dungeon")
-The_dungeon = Room("The dungeon", "Where the worst prisoners live" ,None, None,"The office",None)
-The_office = Room("The office","Where the boss of the prison is", None, None,None, "bathroom")
-Bathroom = Room("Bathroom", "Where the prisoners do there business","The women area", None, None, None)
-The_womenarea = Room("The_women area", "Where the women prisoner are", None, None, None, "The power factory")
-the_powerfactory = Room('The power factory', "Where the prisoner do their punishments", None, None, "the arena")
+Prison_Cell = Room("The Prison Cell", "Where the prisoners sleep", "Cafeteria", None, None, None)
+Cafeteria = Room("Cafeteria", "Where the prisoners eat", None, None, "The gym", None)
+The_gym = Room("The gym","Where the prisoners plan an escape", None, None, None, "The dungeon")
+The_dungeon = Room("The dungeon", "Where the worst prisoners live", None, None, "The office", None)
+The_office = Room("The office", "Where the boss of the prison is", None, None,None, "bathroom")
+Bathroom = Room("Bathroom", "Where the prisoners do there business", "The women area", None, None, None)
+The_women_area = Room("The_women area", "Where the women prisoner are", None, None, None, "The power factory")
+the_power_factory = Room('The power factory', "Where the prisoner do their punishments", None, None, "the arena")
 the_arena = Room("the arena", "WHere prisoner battle each other", None, "The weapons shop", None, None,)
-the_weaponsshop = Room("the weapons shop", "Where the prisoners get the their weapons for battle", None, None, None, "The medical area")
-the_medicalarea = Room("The medical area", "Where the prisoners get fix after the fight in the arena","The boss office", None, None, None)
-the_bossoffice = Room("the boss office", "Where the prisoners go to the", None, None, None, "The coal mine")
-the_coalmine = Room("the coal mine", "Where the prisoner work for time", None, "the court", None, None)
+the_weapons_shop = Room("the weapons shop", "Where the prisoners get the their weapons for battle", None, None, None,
+                       ,"the medical area")
+the_medical_area = Room("The medical area", "Where the prisoners get fix after the fight in the arena","The boss office"
+                       ,None, None, None)
+the_boss_office = Room("the boss office", "Where the prisoners go to the", None, None, None, "The coal mine")
+the_coal_mine = Room("the coal mine", "Where the prisoner work for time", None, "the court", None, None)
 the_court = Room("the court", "Where the prisoner get judge", "The exits", None, None, None)
 the_exit = Room("the exit", "Where the prisoner get released")
-
-
-
