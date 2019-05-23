@@ -14,11 +14,11 @@ with open("Sales Records.csv", 'r') as csv_file_thing:
     Baby_Food_Profits = []
     Snacks_Profits = []
     Cereal_Profits = []
-    # Profits Regions
-    Sub-Saharan_Africa_Profits = []
+    # Regions
+    Sub_Saharan_Africa_Profits = []
     Middle_East_Profits = []
     North_Africa_Profits = []
-    Australia_Profits  = []
+    Australia_Profits = []
     Oceania_Profits = []
     Europe_Profits = []
     Asia_Profit = []
@@ -87,11 +87,32 @@ index = list_num.index(max(list_num))
 print()
 print("Item with the highest profit is %s" % list_num[index])
 
-regions = ['Sub-Saharan_Africa', 'Middle_East' and 'North_Africa', 'Australia' and 'Oceania', 'Europe', 'Asia',
-              'Central_America' and 'the_Caribbean']
+regions = ['Sub-Saharan_Africa', 'Middle_East_and_North_Africa', 'Australia_and _Oceania', 'Europe', 'Asia',
+           'Central_America_and_the_Caribbean']
 
-regions_num = (Sub-Saharan_Africa_Profits, Middle_East_Profits and North_Africa_Profits, Australia_Profits and
+regions_num = (Sub_Saharan_Africa_Profits, Middle_East_Profits and North_Africa_Profits, Australia_Profits and
                Oceania_Profits, Europe_Profits, Asia_Profit, Central_America_Profits and Caribbean_Profits)
+
+Sub_Saharan_Africa_Profits = sum(Sub_Saharan_Africa_Profits)
+Middle_East_Profits = sum(Middle_East_Profits)
+North_Africa_Profits = sum(North_Africa_Profits)
+Australia_Profits = sum(Australia_Profits)
+Oceania_Profits = sum(Oceania_Profits)
+Europe_Profits = sum(Europe_Profits)
+Asia_Profit = sum(Asia_Profit)
+Central_America_Profits = sum(Central_America_Profits)
+Caribbean_Profits = sum(Caribbean_Profits)
+
+print("Sub_Saharan_Africa_Profits = %f" % Sub_Saharan_Africa_Profits)
+print("Middle_East_Profits = %f" % Middle_East_Profits)
+print("North_Africa_Profits = %f " % North_Africa_Profits)
+print("Australia_Profits = %f" % Australia_Profits)
+print("Oceania_Profits = %f" % Oceania_Profits)
+print("Europe_Profits = %f" % Europe_Profits)
+print("Asia_Profit = %f" % Asia_Profit)
+print("Central_America_Profits = %f" % Central_America_Profits)
+print("Caribbean_Profits = %f" % Caribbean_Profits)
+
 
 index = regions_num.index(max(regions_num))
 print()

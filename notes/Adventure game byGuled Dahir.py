@@ -178,14 +178,61 @@ def take_damage(self, damage):
 
 
 # Option 2 - Use Strings, but more difficult controller
-Prison_cell = Room("Prison_cell", 'parking_lot', None, None, None, "This is your computer science class.")
-Cafeteria = Room("Cafeteria ", None, "R19A", None, None, "There are a few cars parked here")
 
-player = player(Prisoners)
+player = Player(Prison_Cell)
 
 directions = ['north', 'south', 'east', 'west', 'up', 'down']
 short_directions = ['n', 's', 'e', 'w', 'u', 'd']
 playing = True
+
+
+class Player(object):
+    def __init__(self, starting_location):
+        self.health = 100
+        self.inventor = [items.Weapons(4), items.Potions(7), items.food(4)]
+        self.current_location = starting_location
+
+
+# Characters
+Prisoners = Character("Prisoners", 100, Sword, Armor("Generic Armor", 2))
+Boss = Character("Boss", 1000000000, Sword, Armor("no armor", 0))
+Cafeteria_worker = Character("Cafeteria worker", 50, Sword, Armor("No armor", 0))
+Room_mate = Character("Room mate", 100, Sword,Armor("No armor", 0))
+
+
+
+
+#  These are the instances of the rooms (Instantiation)
+
+class Room(object):
+    # This is a constructor
+    def __init__(self, name, description, north=None, south=None, west=None, east=None):
+        self.name = name
+        self.north = north
+        self.south = south
+        self.west = west
+        self.east = east
+        self.description = description
+
+# Rooms
+Prison_Cell = Room("The Prison Cell", "Where the prisoners sleep", "Cafeteria", None, None, None)
+Cafeteria = Room("Cafeteria", "Where the prisoners eat", None, None, "The gym", None)
+The_gym = Room("The gym","Where the prisoners plan an escape", None, None, None, "The dungeon")
+The_dungeon = Room("The dungeon", "Where the worst prisoners live", None, None, "The office", None)
+The_office = Room("The office", "Where the boss of the prison is", None, None,None, "bathroom")
+Bathroom = Room("Bathroom", "Where the prisoners do there business", "The women area", None, None, None)
+The_women_area = Room("The_women area", "Where the women prisoner are", None, None, None, "The power factory")
+the_power_factory = Room('The power factory', "Where the prisoner do their punishments", None, None, "the arena")
+the_arena = Room("the arena", "WHere prisoner battle each other", None, "The weapons shop", None, None,)
+the_weapons_shop = Room("the weapons shop", "Where the prisoners get the their weapons for battle", None, None, None,
+                       ,"the_medical_area")
+the_medical_area = Room("The medical area", "Where the prisoners get fix after the fight in the arena","The boss office"
+                       ,None, None, None)
+the_boss_office = Room("the boss office", "Where the prisoners go to the", None, None, None, "The coal mine")
+the_coal_mine = Room("the coal mine", "Where the prisoner work for time", None, "the court", None, None)
+the_court = Room("the court", "Where the prisoner get judge", "The exits", None, None, None)
+the_exit = Room("the exit", "Where the prisoner get released")
+
 
 # Controller
 while playing:
@@ -217,58 +264,3 @@ while playing:
             if found_items is not items_name:
                 player.inventory.append(found_items)
                 player.current_location.items.remove(found_items)
-
-# Items
-Sword = Weapons("Sword", 40)
-Bow = Weapons("Bow", 10)
-Axe = Weapons("Axe", 20)
-Knife = Weapons("Knife", 10)
-Growth = Potion("Growth", 30)
-Shrink = Potion("Shrink", -10)
-
-
-class Player(object):
-    def __init__(self, starting_location):
-        self.health = 100
-        self.inventor = [items.Weapons(4), items.Potions(7), items.food(4)]
-        self.current_location = starting_location
-
-
-# Characters
-Prisoners = Character("Prisoners", 100, Sword, Armor("Generic Armor", 2))
-Boss = Character("Boss", 1000000000, Sword, Armor("no armor", 0))
-Cafeteria_worker = Character("Cafeteria worker", 50, Sword, Armor("No armor", 0))
-Room_mate = Character("Room mate", 100, Sword,Armor("No armor", 0))
-
-
-class Room(object):
-    # This is a constructor
-    def __init__(self, name, description, north=None, south=None, west=None, east=None):
-        self.name = name
-        self.north = north
-        self.south = south
-        self.west = west
-        self.east = east
-        self.description = description
-
-#  These are the instances of the rooms (Instantiation)
-
-
-
-Prison_Cell = Room("The Prison Cell", "Where the prisoners sleep", "Cafeteria", None, None, None)
-Cafeteria = Room("Cafeteria", "Where the prisoners eat", None, None, "The gym", None)
-The_gym = Room("The gym","Where the prisoners plan an escape", None, None, None, "The dungeon")
-The_dungeon = Room("The dungeon", "Where the worst prisoners live", None, None, "The office", None)
-The_office = Room("The office", "Where the boss of the prison is", None, None,None, "bathroom")
-Bathroom = Room("Bathroom", "Where the prisoners do there business", "The women area", None, None, None)
-The_women_area = Room("The_women area", "Where the women prisoner are", None, None, None, "The power factory")
-the_power_factory = Room('The power factory', "Where the prisoner do their punishments", None, None, "the arena")
-the_arena = Room("the arena", "WHere prisoner battle each other", None, "The weapons shop", None, None,)
-the_weapons_shop = Room("the weapons shop", "Where the prisoners get the their weapons for battle", None, None, None,
-                       ,"the medical area")
-the_medical_area = Room("The medical area", "Where the prisoners get fix after the fight in the arena","The boss office"
-                       ,None, None, None)
-the_boss_office = Room("the boss office", "Where the prisoners go to the", None, None, None, "The coal mine")
-the_coal_mine = Room("the coal mine", "Where the prisoner work for time", None, "the court", None, None)
-the_court = Room("the court", "Where the prisoner get judge", "The exits", None, None, None)
-the_exit = Room("the exit", "Where the prisoner get released")
